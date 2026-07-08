@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>नंबर गेम</title>
+    <style>
+        body { background: #1a1a2e; color: white; text-align: center; font-family: sans-serif; padding-top: 50px; }
+        button { padding: 10px 20px; background: #e43f5a; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>संख्या पहचानो गेम!</h1>
+    <p>1 से 10 के बीच अनुमान लगाएं:</p>
+    <input type="number" id="guess" style="padding:10px; width:80px; text-align:center;">
+    <button onclick="check()">चेक करें</button>
+    <p id="msg"></p>
+
+    <script>
+        const num = Math.floor(Math.random() * 10) + 1;
+        function check() {
+            const g = document.getElementById('guess').value;
+            const m = document.getElementById('msg');
+            if(g == num) { m.innerHTML = "बधाई हो! सही जवाब 🎉"; m.style.color="green"; }
+            else if(g > num) { m.innerHTML = "बड़ा है! छोटा नंबर सोचें।"; m.style.color="orange"; }
+            else { m.innerHTML = "छोटा है! बड़ा नंबर सोचें।"; m.style.color="orange"; }
+        }
+    </script>
+</body>
+</html>
